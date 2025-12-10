@@ -130,6 +130,16 @@
         "default": "./dist/fs/base.cjs"
       }
     },
+    "./timescaledb": {
+      "import": {
+        "types": "./dist/timescaledb/index.d.ts",
+        "default": "./dist/timescaledb/index.js"
+      },
+      "require": {
+        "types": "./dist/timescaledb/index.d.cts",
+        "default": "./dist/timescaledb/index.cjs"
+      }
+    },
     "./contrib/*": {
       "types": "./dist/contrib/*.d.ts",
       "import": "./dist/contrib/*.js",
@@ -150,6 +160,7 @@
     "check:exports": "attw . --pack --profile node16",
     "test": "pnpm test:basic && pnpm test:node",
     "test:basic": "pnpm test:clean && vitest tests/*.test.js tests/*.test.ts tests/**/*.test.js tests/**/*.test.ts",
+    "test:timescaledb": "pnpm test:clean && vitest tests/timescaledb.test.ts",
     "test:web": "pnpm test:clean && concurrently -s first --hide 1 --prefix none -k \"sleep 2 && vitest --fileParallelism false tests/targets/web/*.test.web.*\" \"npx http-server --port 3334 ./\"",
     "test:bun": "pnpm test:clean && pnpm bun test --timeout 15000 tests/basic.test.js tests/pgvector.test.js tests/live.test.js tests/targets/runtimes/node-fs.test.js",
     "test:deno": "cd tests/targets/deno && deno task test",

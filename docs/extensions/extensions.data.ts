@@ -545,6 +545,19 @@ const baseExtensions: Extension[] = [
     importName: 'pg_ivm',
     size: 24865,
   },
+  {
+    name: 'timescaledb',
+    description: `
+    TimescaleDB is a time-series database for PostgreSQL. This wasm port provides limited support for TimescaleDB.
+    `,
+    shortDescription:
+      'Time-series database for PostgreSQL.',
+    docs: 'https://github.com/timescale/timescaledb',
+    tags: ['postgres extension'],
+    importPath: '@electric-sql/pglite/timescaledb',
+    importName: 'timescaledb',
+    size: 123456, // TODO: add size
+},
 ]
 
 const tags = [
